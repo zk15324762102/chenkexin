@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+
+</body>
+
+</html>
+<script>
+    //项目的异步路由
+    const asyncRoute = [
+        {
+            path: '/acl',
+            name: 'Acl',
+            children: [
+                {
+                    path: 'user',
+                    name: 'User'
+                },
+                {
+                    path: 'role',
+                    name: 'Role'
+                },
+                {
+                    path: 'permisstion',
+                    name: 'Permisstion'
+                }
+            ]
+        },
+        {
+            path: '/product',
+            name: 'Product',
+            children:[
+                {
+                    path: 'trademark',
+                    name: 'Trademark'
+                },
+                {
+                    path: 'attr',
+                    name: "Attr"
+                },
+                {
+                    path: 'spu',
+                    name: 'Spu'
+                },
+                {
+                    path: "sku",
+                    name: 'Sku'
+                }
+            ]
+        } 
+    ];
+    //上海账号
+    const routes = ["Product", "Trademark", "Spu"];
+    //封装一个函数
+    function findUserAsycRoute(asyncRoute, routes) {
+        //规律路由
+        const result = asyncRoute.filter((item) => {
+            if (routes.includes(item.name)) {
+                if (item.children && item.children.length > 0) {
+                    item.children = findUserAsycRoute(item.children, routes);
+                }
+                return true;
+            }
+        })
+
+        return result;
+    }
+    const newArr = findUserAsycRoute(asyncRoute,routes);
+    
+
+</script>

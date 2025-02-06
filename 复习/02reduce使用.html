@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    
+</body>
+</html>
+<script>
+
+    const arr = [{id:1,name:'平台属性'},{id:2,name:'销售属性',saleIdAndValueId:'2:3'},{id:3,name:'品牌'}];
+
+    //reduce回调执行次数:数组length-1
+    //prev:起始值为数组第零项,上一次回调执行返回的结果
+    //next:起始值为数组的第一项
+    const result = arr.reduce((prev,next)=>{
+          if(next.saleIdAndValueId){
+            const [a,b] = next.saleIdAndValueId.split(":"); 
+            prev.push({a,b})
+          }
+          return prev;
+    },[]);
+    console.log(result);
+    //第一执行:prev ---空的数组
+    //第二执行:prev----[{a:2,b:3}]
+    //第三执行:prev----[{a:2,b:3}]
+
+
+</script>

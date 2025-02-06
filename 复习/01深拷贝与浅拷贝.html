@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    
+</body>
+</html>
+<script>
+    let attrParams = {attrName:'',attrValueList:[{valueName:''}]};
+
+    let  attrList = [{attrName:'颜色',attrValueList:[{valueName:'黑色'}]},{attrName:'钱数',attrValueList:[{valueName:'1'}]}]
+
+
+    {attrName:'颜色',attrValueList:[{valueName:'黑色'}]}
+    //点击更新按钮
+    Object.assign(attrParams,attrList[0]);
+
+    attrParams.attrValueList[0].valueName=123;
+    attrParams.attrName="豪哥";
+    console.log(attrParams,attrList);
+</script>
